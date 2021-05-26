@@ -1,20 +1,29 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
+import { ThemeEmitterService } from './theme-emitter.service';
+import { Theme } from './theme.model';
 
 @Component({
-  selector: 'lib-theme-emitter',
-  template: `
-    <p>
-      theme-emitter works!
-    </p>
-  `,
-  styles: [
-  ]
+  selector: 'theme-emitter',
+  templateUrl: './theme-emitter.component.html',
+  styleUrls: ['./theme-emitter.component.scss']
 })
-export class ThemeEmitterComponent implements OnInit {
+export class ThemeEmitterComponent implements AfterViewInit {
 
-  constructor() { }
+  @ViewChild('primary') primaryElement: ElementRef;
+  @ViewChild('accent') accentElement!: ElementRef;
+  @ViewChild('warn') warnElement!: ElementRef;
 
-  ngOnInit(): void {
+  constructor(private themeEmitterService: ThemeEmitterService) {
+    this.primaryElement = new ElementRef<any>('');
   }
 
+  ngAfterViewInit(): void {
+
+    const primaryColor = getComputedStyle(this.primaryElement.nativeElement).color;
+    const accentColor = getComputedStyle(this.accentElement.nativeElement).color;
+    const warnColor = getComputedStyle(this.warnElement.nativeElement).color;
+
+    this.themeEmitterService.setTheme(new Theme(primaryColor, accentColor, warnColor));
+  }
 }
+
