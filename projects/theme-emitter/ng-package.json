@@ -1,6 +1,10 @@
 {
   "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
   "dest": "../../dist/theme-emitter",
+  "assets": [
+    "README.md",
+    "src/lib/theme-emitter.component.scss"
+  ],
   "lib": {
     "entryFile": "src/public-api.ts"
   }

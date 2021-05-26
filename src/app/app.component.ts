@@ -1,8 +1,6 @@
-import { OverlayContainer } from '@angular/cdk/overlay';
 import { Component, OnInit } from '@angular/core';
 import { ChartType } from 'chart.js';
-import { ThemeEmitterService } from '../../projects/theme-emitter/src/lib/theme-emitter.service';
-import { Theme } from '../../projects/theme-emitter/src/lib/theme.model';
+import { Theme, ThemeEmitterService } from 'theme-emitter';
 import { Chart } from './chart/chart.model';
 
 // Manage these in a constant file
@@ -20,13 +18,10 @@ export class AppComponent implements OnInit {
   chartData!: Chart;
 
   constructor(
-    private themeEmitterService: ThemeEmitterService,
-    private overlayContainer: OverlayContainer
+    private themeEmitterService: ThemeEmitterService
   ) {}
 
   public ngOnInit(): void {
-    this.overlayContainer.getContainerElement().classList.add('base-theme');
-
     this.initTheme();
   }
 

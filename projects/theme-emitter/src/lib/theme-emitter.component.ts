@@ -9,21 +9,22 @@ import { Theme } from './theme.model';
 })
 export class ThemeEmitterComponent implements AfterViewInit {
 
-  @ViewChild('primary') primaryElement: ElementRef;
+  @ViewChild('primary') primaryElement!: ElementRef;
   @ViewChild('accent') accentElement!: ElementRef;
   @ViewChild('warn') warnElement!: ElementRef;
 
   constructor(private themeEmitterService: ThemeEmitterService) {
-    this.primaryElement = new ElementRef<any>('');
+    // this.primaryElement = new ElementRef<any>('');
   }
 
   ngAfterViewInit(): void {
+    setTimeout(() => {
+      const primaryColor = getComputedStyle(this.primaryElement.nativeElement).color;
+      const accentColor = getComputedStyle(this.accentElement.nativeElement).color;
+      const warnColor = getComputedStyle(this.warnElement.nativeElement).color;
 
-    const primaryColor = getComputedStyle(this.primaryElement.nativeElement).color;
-    const accentColor = getComputedStyle(this.accentElement.nativeElement).color;
-    const warnColor = getComputedStyle(this.warnElement.nativeElement).color;
-
-    this.themeEmitterService.setTheme(new Theme(primaryColor, accentColor, warnColor));
+      this.themeEmitterService.setTheme(new Theme(primaryColor, accentColor, warnColor));
+    });
   }
 }
 
