@@ -6,7 +6,7 @@
       @content;
     }
   } @else {
-    @warn "No value could be retrieved from `#{$breakpoint}`. "
+    @warn "This `#{$breakpoint}` has not been defined."
         + "Available breakpoints are: #{map-keys($global-breakpoints)}.";
   }
 }

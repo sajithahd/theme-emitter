@@ -13,7 +13,7 @@ export const CHART_TYPE = 'pie';
 })
 
 export class AppComponent implements OnInit {
-  title = 'theme-emitter-demo';
+  title = 'Theme Emitter Demo';
   theme!: Theme;
   chartData!: Chart;
   enableLightTheme: boolean;
@@ -48,7 +48,7 @@ export class AppComponent implements OnInit {
       {
         backgroundColor: [
           this.theme?.primaryColor,
-          this.theme?.accentColor,
+          this.theme?.accentColor
         ],
         borderWidth: 0
       }
@@ -62,13 +62,10 @@ export class AppComponent implements OnInit {
       legend: false
     };
 
+    // real values to be passed here
     const data = [70, 30];
 
     return new Chart(type, colors, size, options, data);
   }
 
-  public onToggle($event: any): void {
-    this.enableLightTheme = !this.enableLightTheme;
-    // this.chartData = this.initChart();
-  }
 }
