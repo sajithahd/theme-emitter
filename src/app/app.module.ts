@@ -18,7 +18,7 @@ import { ChartComponent } from './chart/chart.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     ThemeEmitterModule,
-    ChartsModule,
+    ChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
