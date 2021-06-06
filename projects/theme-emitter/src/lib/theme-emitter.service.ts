@@ -1,6 +1,6 @@
-import {Injectable} from '@angular/core';
-import {Observable, ReplaySubject} from 'rxjs';
-import {Theme} from './theme.model';
+import { Injectable } from '@angular/core';
+import { Observable, ReplaySubject } from 'rxjs';
+import { Theme } from './theme.model';
 
 @Injectable({
   providedIn: 'root'

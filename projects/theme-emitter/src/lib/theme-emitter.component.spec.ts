@@ -8,9 +8,9 @@ describe('ThemeEmitterComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ThemeEmitterComponent ]
+      declarations: [ThemeEmitterComponent]
     })
-    .compileComponents();
+                 .compileComponents();
   });
 
   beforeEach(() => {

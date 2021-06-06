@@ -4,7 +4,7 @@ import { Theme, ThemeEmitterService } from 'theme-emitter';
 import { Chart } from './chart/chart.model';
 
 // Manage these in a constant file
-export const ANALYSER_CHART_TYPE = 'pie';
+export const CHART_TYPE = 'pie';
 
 @Component({
   selector: 'app-root',
@@ -16,10 +16,13 @@ export class AppComponent implements OnInit {
   title = 'theme-emitter-demo';
   theme!: Theme;
   chartData!: Chart;
+  enableLightTheme: boolean;
 
   constructor(
     private themeEmitterService: ThemeEmitterService
-  ) {}
+  ) {
+    this.enableLightTheme = true;
+  }
 
   public ngOnInit(): void {
     this.initTheme();
@@ -36,16 +39,16 @@ export class AppComponent implements OnInit {
   }
 
   private initChart(): Chart {
-    const type = ANALYSER_CHART_TYPE as ChartType;
+    const type = CHART_TYPE as ChartType;
     const size = {
-      width: 100,
-      height: 100
+      width: 300,
+      height: 300
     };
     const colors = [
       {
         backgroundColor: [
           this.theme?.primaryColor,
-          'rgba(0, 0, 0, 0.12)'
+          this.theme?.accentColor,
         ],
         borderWidth: 0
       }
@@ -64,4 +67,8 @@ export class AppComponent implements OnInit {
     return new Chart(type, colors, size, options, data);
   }
 
+  public onToggle($event: any): void {
+    this.enableLightTheme = !this.enableLightTheme;
+    // this.chartData = this.initChart();
+  }
 }

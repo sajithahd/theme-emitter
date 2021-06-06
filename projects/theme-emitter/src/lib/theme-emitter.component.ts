@@ -14,7 +14,6 @@ export class ThemeEmitterComponent implements AfterViewInit {
   @ViewChild('warn') warnElement!: ElementRef;
 
   constructor(private themeEmitterService: ThemeEmitterService) {
-    // this.primaryElement = new ElementRef<any>('');
   }
 
   ngAfterViewInit(): void {

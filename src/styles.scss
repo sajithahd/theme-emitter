@@ -5,6 +5,8 @@
 
 // Plus imports for other components in your app.
 @import './src/themes/base-theme';
+@import './src/app/app.component';
+
 
 // Include the common styles for Angular Material.
 @include mat-core();
@@ -14,12 +16,17 @@
 // that you are using.
 @mixin custom-components($theme) {
   @include theme-emitter($theme);
+  @include app-theme($theme)
 }
 
-.base-theme {
-  @include angular-material-theme($theme);
-  @include custom-components($theme);
+.light-theme {
+  @include angular-material-theme($light-theme);
+  @include custom-components($light-theme);
+}
 
+.dark-theme {
+  @include angular-material-theme($dark-theme);
+  @include custom-components($dark-theme);
 }
 
 html, body {

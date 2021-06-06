@@ -1,22 +1,2 @@
-@mixin circle($size, $background, $border:none) {
-  height: $size;
-  width: $size;
-  display: inline-block;
-  background: $background;
-  border: $border;
-  border-radius: 50%;
-}
 
-@mixin scroll() {
 
-  *::-webkit-scrollbar {
-    width: 3px;
-  }
-
-  *::-webkit-scrollbar-thumb {
-    background: $global-scroll-color;
-    border-radius: 3px;
-  }
-
-  @content;
-}

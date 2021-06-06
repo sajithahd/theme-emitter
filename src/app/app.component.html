@@ -1,4 +1,9 @@
-<div class="base-theme">
+<div class="p-app-container" [ngClass]="enableLightTheme ? 'light-theme':'dark-theme'" >
+  <!---->
+  <mat-slide-toggle
+    [ngModel]="enableLightTheme"
+    (ngModelChange)="onToggle($event)">Light</mat-slide-toggle>
+
   <chart *ngIf="chartData" [chartData]="chartData"></chart>
   <theme-emitter></theme-emitter>
 </div>

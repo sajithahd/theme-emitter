@@ -1,10 +1,10 @@
-<div class="m-chart-container" *ngIf="chartData">
+<div *ngIf="chartData" class="m-chart-container">
   <div class="a-chart">
-    <canvas baseChart [attr.width]="chartData?.size?.width" [attr.height]="chartData?.size?.height"
-            [data]="chartData.data"
-            [chartType]="chartData.type"
+    <canvas [attr.height]="chartData?.size?.height" [attr.width]="chartData?.size?.width" [chartType]="chartData.type"
             [colors]="chartData.colors"
-            [options]="chartData.options">
+            [data]="chartData.data"
+            [options]="chartData.options"
+            baseChart>
     </canvas>
   </div>
 </div>
