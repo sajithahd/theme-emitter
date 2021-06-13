@@ -4,7 +4,7 @@
 
 // This import should be changed based on the prod dist location or
 // to node modules if theme emitter is consumed inside node modules
-@import "dist/theme-emitter/src/lib/theme-emitter.component";
+@import "~theme-emitter/src/lib/theme-emitter.component";
 
 // Plus imports for other components in your app.
 @import './src/themes/base-theme';
