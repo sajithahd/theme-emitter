@@ -11,7 +11,7 @@
 
   .p-app-container {
     .a-title {
-      color: mat-color($primary);
+      color: mat-color($primary, 900);
     }
 
     background-color: mat-color($accent, 100);
